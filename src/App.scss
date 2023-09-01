@@ -1,0 +1,44 @@
+@import "./sass/bootstrap";
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  flex: 1 0 auto;
+}
+
+.card {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 25px 0px !important;
+  border: none;
+}
+
+label {
+  margin: 5px;
+}
+
+.textmanage {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 0%;
+}
+.date{
+  position: absolute;
+  top: 230px;
+}
+.deleteOption , .editOption{
+  position: absolute;
+  top: 5px;
+  right: 3px;
+  font-size: large;
+}
+.editOption{
+  right: 25px;
+}
