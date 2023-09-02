@@ -42,7 +42,7 @@ export default function StickyWall() {
       await setDoc(doc(firestore, "notes", todo.id), todo);
       message.success("A new notes added successfully")
     } catch (e) {
-      console.error("Error adding document: ", e);
+      message.error("try again ", e);
     }
     setState(initialstate)
   };
@@ -57,7 +57,7 @@ export default function StickyWall() {
       let data = doc.data()
       data.id = doc.id
       array.push(data)
-      console.log(`${doc.id} => ${doc.data()}`);
+      // console.log(`${doc.id} => ${doc.data()}`);
     })
     setNotes(array)
     setlist(null)

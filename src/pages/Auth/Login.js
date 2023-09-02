@@ -1,7 +1,8 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom'
 import { signInWithEmailAndPassword , onAuthStateChanged } from "firebase/auth";
 import { auth } from '../../config/firebase';
+import { message } from 'antd';
 const initialization = { email: "", password: "" }
 export default function Login() {
     const [state, setState] = useState(initialization)
@@ -17,12 +18,13 @@ export default function Login() {
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 const user = userCredential.user;
-                console.log("user login successfully")
+                message.success(" login successfully")
                 console.log(user)
                 nevigate("/")
             })
             .catch((error) => {
                 console.error(error)
+                message.error("You have no account")
             });
     }
 

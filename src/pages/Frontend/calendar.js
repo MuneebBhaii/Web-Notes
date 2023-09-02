@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import dayjs from 'dayjs'
-import { doc, collection, getDocs, deleteDoc, query, where } from 'firebase/firestore';
+import {setDoc, doc, collection, getDocs, deleteDoc, query, where } from 'firebase/firestore';
 import { firestore } from '../../config/firebase';
-import { theme, Row, Col, message } from 'antd';
+import { theme,Row,Col, message } from 'antd';
 import {
   DeleteOutlined,
+  EditOutlined,
 } from '@ant-design/icons';
 export default function Today() {
   const [selectday, setSelectday] = useState()
@@ -39,6 +40,14 @@ export default function Today() {
     await deleteDoc(doc(firestore, "notes", note.id));
     message.success("Note deleted successfully")
   }
+
+  const editNote = async (note) => {
+    
+    await setDoc(doc(firestore, "notes", note.id), {
+      title: "kia hall hai"
+    }, { merge: true });
+    message.success("Note update successfully")
+  }
   return (
     <main className='bg-light'>
       <div className="container">
@@ -52,9 +61,9 @@ export default function Today() {
         <div className="row">
         {notes.map((note, i) => {
             return (
-            <div className="col-12 col-sm-6 col-md-4 col-lg-3">
-              <div style={{padding: '8px', borderRadius: 8 , height: '200px', backgroundColor: note.color }} key={i}><h5 className=''>{note.title}</h5><span>{note.list}</span><p className='textmanage'>{note.description}</p><br /><p className='date'>{note.date}</p></div>
-            </div>
+              <div className="col-12 mb-2 col-sm-6  col-md-4 col-lg-3 mb-md-3">
+              <div className='' style={{ padding: '8px', borderRadius: 8 , height: '200px', backgroundColor: note.color }} key={i}><Row><Col span={20}><h5 className=''>{note.title}</h5></Col><Col span={4}><EditOutlined className='editOption' onClick={() => { editNote(note) }} /><DeleteOutlined className='deleteOption' onClick={() => { deleteNote(note) }} /></Col></Row><span>{note.list}</span><p className='textmanage'>{note.description}</p><br /><p className='date'>{note.date}</p></div>
+              </div>
           )})}
         </div>
       </div>

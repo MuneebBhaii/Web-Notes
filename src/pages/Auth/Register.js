@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import {doc , setDoc} from 'firebase/firestore'
 import { auth, firestore } from '../../config/firebase';
+import { message } from 'antd';
 const initialization = {  email: "", password: "" }
 export default function Register() {
 
@@ -19,7 +20,7 @@ export default function Register() {
             .then((userCredential) => {
                 // Signed in 
                 const user = userCredential.user;
-                console.log("user register successfully")
+                message.success("user register successfully")
                 console.log(user)
                 try {
                     setDoc(doc(firestore, "users", user.uid),{email: user.email , id : user.uid });
@@ -29,6 +30,7 @@ export default function Register() {
             })
             .catch((error) => {
                 console.error(error)
+                message.error("try again")
             });
     }
     return (

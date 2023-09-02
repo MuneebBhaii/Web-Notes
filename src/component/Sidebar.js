@@ -87,11 +87,11 @@ export default function Sidebar() {
   const handleColor = (_, color) => {
     setState(s => ({ ...s, color }))
   }
-  // silder bar
-  const [collapsed, setCollapsed] = useState(false);
-  const toggleCollapsed = () => {
-    setCollapsed(!collapsed);
-  };
+  // // silder bar
+  // const [collapsed, setCollapsed] = useState(false);
+  // const toggleCollapsed = () => {
+  //   setCollapsed(!collapsed);
+  // };
   return (
     <>
       {/* <div className="p-2"> */}
@@ -110,7 +110,7 @@ export default function Sidebar() {
             <div className="col">
               <h3>Menu</h3>
             </div>
-            <div className="col">
+            {/* <div className="col">
               <Button
                 type="primary"
                 // onClick={toggleCollapsed}
@@ -120,7 +120,7 @@ export default function Sidebar() {
               >
                 {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
               </Button>
-            </div>
+            </div> */}
           </div>
         </div>
         <Divider />
