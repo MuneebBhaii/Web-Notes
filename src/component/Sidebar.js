@@ -49,7 +49,7 @@ export default function Sidebar() {
   }
   useEffect(() => {
     getList()
-  }, [])
+  }, [lists])
   const showModal = () => {
     setOpenpopup(true);
   };

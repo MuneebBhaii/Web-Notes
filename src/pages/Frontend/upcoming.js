@@ -30,7 +30,7 @@ export default function Today() {
 
   useEffect(() => {
     fatchDocument()
-  }, [])
+  }, [notes])
 
   const editNote = async (note) => {
     

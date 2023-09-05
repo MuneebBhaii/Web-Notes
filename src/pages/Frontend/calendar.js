@@ -34,7 +34,7 @@ export default function Today() {
 
   useEffect(() => {
     fatchDocument()
-  }, [fatchDocument()])
+  }, [notes])
 
   const deleteNote = async (note) => {
     await deleteDoc(doc(firestore, "notes", note.id));

@@ -29,6 +29,7 @@ export default function StickyWall() {
     console.log(state)
     const { title, description, date, color } = state
     if (!title) { return message.error("give at least title") }
+    if(!getList){return message.error("add list type")}
     const todo = {
       title, list:getList, description, date, color,
       id: Math.random().toString(36).slice(2),
@@ -45,8 +46,9 @@ export default function StickyWall() {
       message.error("try again ", e);
     }
     setState(initialstate)
+    setlist(null)
   };
-
+  
   const fatchDocument = async () => {
 
     const q = query(collection(firestore, "notes"), where("createdBy.uid", "==", user.uid))
@@ -60,9 +62,8 @@ export default function StickyWall() {
       // console.log(`${doc.id} => ${doc.data()}`);
     })
     setNotes(array)
-    setlist(null)
   }
-
+  
   useEffect(() => {
     fatchDocument()
   }, [notes])
