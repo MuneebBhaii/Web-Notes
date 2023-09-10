@@ -100,7 +100,7 @@ export default function StickyWall() {
       {notes.map((note, i) => {
         return(
           <div className="col-12 mb-2 col-sm-6  col-md-4 col-lg-3 mb-md-3">
-           <div className='' style={{ padding: '8px', borderRadius: 8 , height: '200px', backgroundColor: note.color }} key={i}><Row><Col span={20}><h5 className=''>{note.title}</h5></Col><Col span={4}><EditOutlined className='editOption' onClick={() => { editNote(note) }} /><DeleteOutlined className='deleteOption' onClick={() => { deleteNote(note) }} /></Col></Row><span>{note.list}</span><p className='textmanage'>{note.description}</p><br /><p className='date'>{note.date}</p></div>
+           <div  key={i} className='' style={{ padding: '8px', borderRadius: 8 , height: '200px', backgroundColor: note.color }}><Row><Col span={20}><h5 className=''>{note.title}</h5></Col><Col span={4}><EditOutlined className='editOption' onClick={() => { editNote(note) }} /><DeleteOutlined className='deleteOption' onClick={() => { deleteNote(note) }} /></Col></Row><span>{note.list}</span><p className='textmanage'>{note.description}</p><br /><p className='date'>{note.date}</p></div>
            </div>
       )})}
       <div className='col-12 mb-2 col-sm-6  col-md-4 col-lg-3 mb-md-3'>
@@ -136,7 +136,7 @@ export default function StickyWall() {
                   </Form.Item>
                   <Form.Item label='Select list type' className='mb-2' >
                     <Select placeholder="Select list" onChange={list =>{ setlist(list)}}>
-                      {["Personal", "Work"].map((list, i) => {
+                      {["personal", "work"].map((list, i) => {
                         return <Option key={i} value={list} >{list}</Option>
                       })}
                     </Select>

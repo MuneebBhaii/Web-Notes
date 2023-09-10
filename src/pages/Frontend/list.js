@@ -25,7 +25,9 @@ export default function ListType() {
     })
   }
   const fatchDocument = async () => {
-    const q = query(collection(firestore, "notes"), where("createdBy.uid", "==", user.uid));
+    const q = query(collection(firestore, "notes"),
+     where("createdBy.uid", "==", user.uid),
+     where("list", "==", listName));
     
     let array = []
     const querySnapshot = await getDocs(q);
@@ -34,7 +36,6 @@ export default function ListType() {
     });
     setNotes(array)
   }
-
   useEffect(() => {
     fatchDocument()
     getListName()
