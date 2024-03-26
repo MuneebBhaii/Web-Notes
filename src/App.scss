@@ -6,13 +6,38 @@
   min-height: 100vh;
 }
 
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+.siderScroll::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track,
+.siderScroll::-webkit-scrollbar-thumb {
+  background-color: white;
+}
+
+::-webkit-scrollbar-thumb,
+.siderScroll::-webkit-scrollbar-thumb {
+  background-color: grey;
+  border-radius: 6px;
+  background-clip: content-box;
+}
+
 main {
   display: flex;
   align-items: center;
   flex: 1 0 auto;
 }
 
+.Authbg {
+  background-image: linear-gradient(to bottom right, red,blue,green, yellow);
+}
+
 .card {
+  background-color: rgb(18, 17, 17, 0.6);
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 25px 0px !important;
   border: none;
 }
@@ -21,24 +46,143 @@ label {
   margin: 5px;
 }
 
+.title , .textmanage{
+  text-decoration: none;
+  color: black;
+}
+.title {
+  font-size: 18px;
+  font-weight: 700;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .textmanage {
+  overflow: hidden;
+  text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  margin-bottom: 0%;
 }
-.date{
+
+.title:hover , .textmanage:hover{
+  color: black;
+  cursor: pointer;
+}
+
+.notesDiv {
+  position: relative;
+  padding: 8px;
+  height: 200px;
+  border-radius: 8px;
+}
+
+.date {
   position: absolute;
-  top: 230px;
+  top: 165px;
 }
-.deleteOption , .editOption{
+
+.deleteOption,
+.editOption {
   position: absolute;
   top: 5px;
   right: 3px;
   font-size: large;
 }
-.editOption{
+
+.editOption {
   right: 25px;
+}
+
+.menu {
+  background-color: rgb(14, 14, 247);
+  color: white;
+  border-radius: 7px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  display: none;
+}
+// note use paran page
+.text{
+  margin: 0%;
+  font-size: 22px;
+  font-family:'Times New Roman', Times, serif;
+  font-weight: 500;
+}
+.textEdit{
+  width: 100%;
+  margin: 0%;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid black;
+  outline: none;
+  padding: 0;
+  font-size: 22px;
+  font-family:'Times New Roman', Times, serif;
+  font-weight: 500;
+}
+.textarea{
+  border: 1px solid black;
+  padding: 10px; 
+  border-radius: 5px;
+}
+.option{
+  background-color: rgb(0, 0, 0,0.9);
+  color: white;
+  border: none;
+}
+// sider
+#sider {
+  display: none;
+}
+
+#siderBlock {
+  background-color: white;
+  z-index: 2;
+  display: block;
+}
+
+.close {
+  display: none;
+}
+
+@media (max-width:575px) {
+  .menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #sider {
+    padding: "20 10";
+    background-color: white;
+    z-index: 2;
+  }
+
+  #siderBlock {
+    display: none;
+  }
+
+  .menu_part {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h3 {
+      margin-right: 30px;
+      text-align: center;
+    }
+
+    .close {
+      display: block;
+      margin-left: 20px;
+      border: none;
+
+      img {
+        width: 35px;
+      }
+    }
+  }
 }

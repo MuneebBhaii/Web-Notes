@@ -34,53 +34,52 @@ export default function Register() {
             });
     }
     return (
-        <main className='bg-secondary'>
-            {/* <div className="py-2 w-100"> */}
+        <main className='Authbg'>
             <div className="container">
                 <div className="row">
                     <div className="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
-                        <div className="card p-2 p-md-4 p-lg-5">
-                            <h2 className='text-center mb-4'>Register Form</h2>
+                        <div className="card p-2 p-md-3 p-lg-4">
+                            <h2 className='text-center mb-4 text-white'>Register Form</h2>
                             <form onSubmit={handleSubmit}>
 
-                                <div className="row mb-3">
+                                <div className="row mb-2">
                                     <div className="col">
-                                        <label htmlFor="fullName">Full Name</label>
+                                        <label htmlFor="fullName" className='text-white'>Full Name</label>
                                         <input type="text" className='form-control' placeholder='Full Name' name='fullName' onChange={handleChange} />
                                     </div>
                                 </div>
-                                <div className="row mb-3">
+                                <div className="row mb-2">
                                     <div className="col">
-                                        <label htmlFor="email">Email</label>
+                                        <label htmlFor="email" className='text-white'>Email</label>
                                         <input type="email" className='form-control' placeholder='Email' name='email' onChange={handleChange} />
                                     </div>
                                 </div>
-                                <div className="row mb-3">
+                                <div className="row mb-2">
                                     <div className="col">
-                                        <label htmlFor="date">Date-of-Birth</label>
+                                        <label htmlFor="date " className='text-white'>Date-of-Birth</label>
                                         <input type="date" className='form-control' name='date' onChange={handleChange} />
                                     </div>
                                 </div>
-                                <div className="row mb-3">
+                                <div className="row mb-2">
                                     <div className="col">
-                                        <label htmlFor="number">Number</label>
+                                        <label htmlFor="number" className='text-white'>Number</label>
                                         <input type="number" className='form-control' placeholder='Phone Number' name='number' onChange={handleChange} />
                                     </div>
                                 </div>
                                 <div className="row mb-3">
                                     <div className="col">
-                                        <label htmlFor="password">Password</label>
+                                        <label htmlFor="password" className='text-white'>Password</label>
                                         <input type="text" className='form-control' placeholder='Password' name='password' onChange={handleChange} />
                                     </div>
                                 </div>
                                 <div className="row">
                                     <div className="col">
-                                        <button className='btn btn-outline-success w-100' >Register</button>
+                                        <button className='btn btn-outline-primary w-100' >Register</button>
                                     </div>
                                 </div>
                                 <div className="row mt-2">
-                                    <div className="col text-center">
-                                        Already have account <Link to="/Auth/Login"><u className='text-dark fw-bold'>Login</u></Link>
+                                    <div className="col text-center text-white">
+                                        Already have account <Link to="/Auth/Login"><u className='text-white fw-bold'>Login</u></Link>
                                     </div>
                                 </div>
                             </form>

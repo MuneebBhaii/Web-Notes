@@ -29,12 +29,12 @@ export default function Login() {
     }
 
     return (
-        <main className='bg-secondary'>
+        <main className='Authbg'>
             <div className="container">
                 <div className="row">
                     <div className="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
                         <div className="card p-2 p-md-4 p-lg-5">
-                            <h2 className="text-center mb-4">Login Form</h2>
+                            <h2 className="text-center text-white mb-4">Login Form</h2>
                             <form onSubmit={handleSubmit}>
 
                                 <div className="row mb-3">
@@ -49,12 +49,12 @@ export default function Login() {
                                 </div>
                                 <div className="row">
                                     <div className="col">
-                                        <button className='btn btn-outline-success w-100'>Login</button>
+                                        <button className='btn btn-outline-primary w-100'>Login</button>
                                     </div>
                                 </div>
                                 <div className="row mt-2">
-                                    <div className="col text-center">
-                                        Create new account <Link to="/Auth/Register"><u className='text-dark fw-bold'>Register</u></Link>
+                                    <div className="col text-center text-white">
+                                        Create new account <Link to="/Auth/Register"><u className='text-white fw-bold'>Register</u></Link>
                                     </div>
                                 </div>
                             </form>
