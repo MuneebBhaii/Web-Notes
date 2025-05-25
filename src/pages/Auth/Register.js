@@ -4,7 +4,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import {doc , setDoc} from 'firebase/firestore'
 import { auth, firestore } from '../../config/firebase';
 import { message } from 'antd';
-const initialization = {  email: "", password: "" }
+const initialization = {  email: "", password: "" , fullNames:"", number:"" }
 export default function Register() {
 
     const [state, setState] = useState(initialization)
@@ -15,7 +15,18 @@ export default function Register() {
     const handleSubmit = (e) => {
         e.preventDefault()
         console.log(state)
-        const { email , password  } = state
+        const { email , password , fullName , number } = state
+       if (fullName.length < 3){
+            message.error("Full Name enter")
+            return
+        } else if (number.length !== 11) {
+            message.error("Number must be 11 characters")
+            return
+        }else if(password.length < 6){
+            message.error("password must be 6 characters")
+            return
+        }
+
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 // Signed in 
@@ -30,7 +41,7 @@ export default function Register() {
             })
             .catch((error) => {
                 console.error(error)
-                message.error("try again")
+                message.error("Email Already Registered");
             });
     }
     return (

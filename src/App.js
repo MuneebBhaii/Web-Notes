@@ -8,9 +8,7 @@ export default function App() {
   return (
     <>
       <AuthContextProvider>
-        {/* <NotesContextProvider> */}
           <Routes />
-        {/* </NotesContextProvider> */}
       </AuthContextProvider>
     </>
   )

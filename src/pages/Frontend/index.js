@@ -54,7 +54,6 @@ export default function index() {
                   padding: "10px",
                 }}>
                   <Content>
-                    {/* <ListContextProvider> */}
                     <Routes>
                       <Route path="/" element={<StickyWall />} />
                       <Route path="today" element={<Today />} />
@@ -63,7 +62,6 @@ export default function index() {
                       <Route path="list/:id" element={<ListType />} />
                       <Route path="notes/:id" element={<Notes />} />
                     </Routes>
-                    {/* </ListContextProvider> */}
                   </Content>
                 </Row>
               </Col>
